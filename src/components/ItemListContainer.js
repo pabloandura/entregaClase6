@@ -1,9 +1,23 @@
-import Box from '@mui/material/Box';
+import customFetch from '../usefuls/customFetch'
+import { useEffect, useState } from 'react'
+import products from '../usefuls/products'
+import ItemList from './ItemList'
+import './ItemListContainer.css'
 
 const ItemListContainer = () => {
-    return (
-        <Box>'AQUI ESTARA EL CATALOGO'</Box>
+  const [datos, setDatos] = useState([]); // HOOK
+
+  useEffect(() => {
+    customFetch(2000, products)
+      .then(result => setDatos(result))
+      .catch(err => console.log(err))
+  }, []);
+
+  
+  return(
+    <div id='contenedor'>  
+      <ItemList data={datos}/>
+    </div>
     )
 }
-
-export default ItemListContainer;
+export default ItemListContainer
