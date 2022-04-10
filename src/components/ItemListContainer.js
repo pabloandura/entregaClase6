@@ -5,7 +5,7 @@ import ItemList from './ItemList'
 import './ItemListContainer.css'
 
 const ItemListContainer = () => {
-  const [datos, setDatos] = useState([]); // HOOK
+  const [datos, setDatos] = useState(0); // HOOK
 
   useEffect(() => {
     customFetch(2000, products)

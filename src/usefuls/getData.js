@@ -1,4 +1,4 @@
-const customFetch = (time,task) => {
+const getData = (time,task) => {
     let is_ok = true;
     return new Promise((resolve, reject) => {
         if (is_ok) {
@@ -11,4 +11,4 @@ const customFetch = (time,task) => {
     });
 }
 
-export default customFetch;
+export default getData;

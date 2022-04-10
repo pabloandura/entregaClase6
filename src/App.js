@@ -1,12 +1,14 @@
 import './App.css';
 import BarraNav from './components/BarraNav'
-import ItemListContainer from './components/ItemListContainer';
+import ItemDetailContainer from './components/ItemDetailContainer';
+
 function App() {
+
+
   return (
     <div className="App">
       <BarraNav/>
-      <ItemListContainer/>
-      
+      <ItemDetailContainer/>
     </div>
   );
 }
