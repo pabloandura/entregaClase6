@@ -1,1 +1,1 @@
-## Entrega desafio de catalogo para Camilo
+## Entrega desafio de detalle de producto para Camilo
