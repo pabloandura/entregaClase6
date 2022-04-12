@@ -5,6 +5,7 @@ import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { Grid } from '@mui/material';
+import { Link } from 'react-router-dom';
 import './Item.css'
 
 const Item = (props) => {
@@ -26,8 +27,10 @@ const Item = (props) => {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small" variant='outlined'>+ Informacion</Button>
-        <Button size="small" variant='outlined'>Agregar al Carrito</Button>
+        <Link to={'/item/'+props.id}>
+          <Button size="small" variant='outlined'>+ Informacion</Button>
+        </Link>
+          <Button size="small" variant='outlined'>Agregar al Carrito</Button>
       </CardActions>
     </Card>
     </Grid>

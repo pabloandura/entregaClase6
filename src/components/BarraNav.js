@@ -1,102 +1,43 @@
 import * as React from 'react';
+import { Link } from 'react-router-dom';
 import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
-import Menu from '@mui/material/Menu';
-import MenuIcon from '@mui/icons-material/Menu';
-import Container from '@mui/material/Container';
-import Button from '@mui/material/Button';
-import MenuItem from '@mui/material/MenuItem';
-import CartWidget from './CartWidget'
-
-
-const pages = ['Preamplificadores', 'Compresores', 'Accesorios'];
+import './BarraNav.css'
+import CartWidget from './CartWidget';
 
 const BarraNav = () => {
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
-
-  const handleOpenNavMenu = (event) => {
-    setAnchorElNav(event.currentTarget);
-  };
-
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
-  };
-
   return (
     <AppBar position="static">
-      <Container maxWidth="xl">
-        <Toolbar disableGutters>
-          <Typography
-            variant="h6"
-            noWrap
-            component="div"
-            sx={{pr: 10, mr: 2, display: { xs: 'none', md: 'flex' } }}
-          >
-            Sonido Acutec
+      <Toolbar variant="dense" className='toolbar'>
+        <Link to='/' className='linkBarra logo'>
+          <Typography variant="h3" color="white" component="div">
+          Sonido Acutec
           </Typography>
-
-          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
-            <IconButton
-              size="large"
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              onClick={handleOpenNavMenu}
-              color="inherit"
-            >
-              <MenuIcon />
-            </IconButton>
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: 'bottom',
-                horizontal: 'left',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'left',
-              }}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
-              sx={{
-                display: { xs: 'block', md: 'none' },
-              }}
-            >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
-          </Box>
-          <Typography
-            variant="h6"
-            noWrap
-            component="div"
-            sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
-          >
-            LOGO
+        </Link>
+        <Link to='/category/0' className='linkBarra'>
+          <Typography variant="h6" color="white" component="div">
+            Preamplificadores
           </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
-              >
-                {page}
-              </Button>
-            ))}
-          </Box>
+        </Link>
+        <Link to='/category/1' className='linkBarra'>
+          <Typography variant="h6" color="white" component="div">
+            Compresores
+          </Typography>
+        </Link>
+        <Link to='/category/2' className='linkBarra'>
+          <Typography variant="h6" color="white" component="div">
+            Equalizadores
+          </Typography>
+        </Link>
+        <Link to='/category/3' className='linkBarra'>
+          <Typography variant="h6" color="white" component="div">
+            Utilitarios
+          </Typography>
+        </Link>
           <CartWidget/>
-        </Toolbar>
-      </Container>
-    </AppBar>
-  );
-};
+      </Toolbar>
+    </AppBar>  
+)}
+
 export default BarraNav; 

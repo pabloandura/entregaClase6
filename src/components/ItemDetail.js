@@ -30,13 +30,13 @@ const ItemDetail = ({item}) => {
     return(
         <>
         {
-        item.name
+        item.id
         ? 
         <div>
             <h2>{item.name}</h2>
             <Grid container className='detailPage'>
                 <Grid item xs={4}>
-                    <img src={item.imageDetail}/>
+                    <img src={item.imageDetail} alt='detalleProducto'/>
                     <h3>Stock Actual: {item.stock}</h3>
                     <h4>Precio unitario: U$S {item.cost}</h4>
                     <h4>Precio total: U$S {costoTotal}</h4>
