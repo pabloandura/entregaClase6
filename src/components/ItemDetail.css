@@ -7,11 +7,13 @@ h2 {
 img {
     border: solid black 1px;
     max-width: 100%;
+    margin: 2em;
 }
 
 .detailPage {
     background-color: lightcyan;
     box-shadow: black 4px 4px 4px 4px;
+    padding-left: 20px;
 }
 
 .margen {
