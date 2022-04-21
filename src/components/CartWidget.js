@@ -1,12 +1,14 @@
 import { Badge } from '@mui/material';
 import { ShoppingCartOutlined } from '@mui/icons-material/';
+import { Link } from 'react-router-dom';
 
-const CartWidget = (quantityCartItems) => {
-    quantityCartItems = 5
-    return (    
-        <Badge badgeContent={quantityCartItems}>
+const CartWidget = () => {
+    return (
+    <Link to='/cart'>    
+        <Badge badgeContent={4}>
             <ShoppingCartOutlined/>
         </Badge>
+    </Link>
     )
 }
 

@@ -1,0 +1,19 @@
+.imgItem {
+    border-radius: 50%;
+    height:200px;
+    width:200px;
+    display: inline-block;
+}
+
+.info {
+  float: right;
+  margin-right: 100px;
+}
+
+.cant {
+  display: inline;
+}
+
+.container {
+  overflow: clip;
+}

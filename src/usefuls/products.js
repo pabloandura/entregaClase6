@@ -8,7 +8,8 @@ const data = [
       cost: '2599',
       image: 'https://http2.mlstatic.com/D_NQ_NP_706231-MLA31589323607_072019-O.webp',
       imageDetail: 'https://http2.mlstatic.com/D_NQ_NP_654284-MCO44018216842_112020-O.jpg',
-      productCategory: 1
+      productCategory: 1,
+      sales: 0
     },
     {
       key: 1,
@@ -19,7 +20,8 @@ const data = [
       cost: '4699',
       image: 'https://media.sweetwater.com/api/i/f-webp__q-82__ha-e26362720567cf60__hmac-3c563f218bad61fd7220eeb6dc3d6ad92afaae78/images/items/750/LA2A-large.jpg.auto.webp',
       imageDetail: 'https://analogvibes.com/wp-content/uploads/tube-amplifier-teletronix-la2a-preamp-opto-compressor-specs-frontside-1.jpg',
-      productCategory: 1
+      productCategory: 1,
+      sales: 0
     },
     {
       key: 2,
@@ -30,7 +32,8 @@ const data = [
       cost: '1549',
       image: 'https://media.sweetwater.com/api/i/f-webp__q-82__ha-609865c2d24388ed__hmac-e59b8fb61e43ebc13b59cf5942f18c30093f109e/images/items/750/ELI8M-large.jpg.auto.webp',
       imageDetail: 'https://www.reflexion-arts.com/wp-content/uploads/2016/04/empirical-labs-el8.jpg',
-      productCategory: 1
+      productCategory: 1,
+      sales: 0
     },
     {
       key: 3,
@@ -41,7 +44,8 @@ const data = [
       cost: '3999',
       image: 'https://media.sweetwater.com/api/i/f-webp__q-82__ha-2d5a88baa84ae155__hmac-1539196ba2d665e411b7f902dc7212cb1856e64e/images/items/750/ShelfordCH-large.jpg.auto.webp',
       imageDetail: 'https://www.reflexion-arts.com/wp-content/uploads/2016/10/shelford-channel.jpg',
-      productCategory: 0
+      productCategory: 0,
+      sales: 0
     },
     {
       key: 4,
@@ -52,7 +56,8 @@ const data = [
       cost: '3130',
       image: 'https://media.sweetwater.com/api/i/f-webp__q-82__ha-76f8f5b03c378bad__hmac-2af17fce9984d5d26fee2ffdce97c09197c2ece5/images/items/750/APIChanStr-large.jpg.auto.webp',
       imageDetail: 'https://cdn.shopify.com/s/files/1/0657/6821/products/9673819_800.jpg?v=1571269897',
-      productCategory: 0
+      productCategory: 0,
+      sales: 0
     },
     {
       key: 5,
@@ -63,7 +68,8 @@ const data = [
       cost: '9590',
       image: 'https://media.sweetwater.com/api/i/f-webp__q-82__ha-96c12c09757214c7__hmac-9ea38cc7b545fb47d205f29528775bdcda558577/images/items/750/MasterComp-large.jpg.auto.webp',
       imageDetail: 'https://images.reverb.com/image/upload/s--EhHHY4g3--/f_auto,t_supersize/v1597956159/rykct85mjkniixq5pegw.jpg',
-      productCategory: 1
+      productCategory: 1,
+      sales: 0
     },
     {
       key: 6,
@@ -74,7 +80,8 @@ const data = [
       cost: '4295',
       image: 'https://media.sweetwater.com/api/i/f-webp__q-82__ha-459203084f821f90__hmac-f12bab341b70dcf86bde59b2c75b9d4a217cb99a/images/items/750/EQP1A-large.jpg.auto.webp',
       imageDetail: 'https://m.media-amazon.com/images/I/51DPLpqX40L._AC_SL1000_.jpg',
-      productCategory: 2
+      productCategory: 2,
+      sales: 0
     },
     {
       key: 7,
@@ -85,7 +92,8 @@ const data = [
       cost: '4195',
       image: 'https://media.sweetwater.com/api/i/f-webp__q-82__ha-6f862c7a0bf24411__hmac-b8b7b8b4bb92c7345e4ae61f29dd7329a57c474d/images/items/750/MEQM5-large.jpg.auto.webp',
       imageDetail: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRo2kwqoOjzzdRcxd7zWjE762bhBqRaiMLFA8efeFSW1YetCOTOvUdZPExBavT-cMs9llY&usqp=CAU',
-      productCategory: 2
+      productCategory: 2,
+      sales: 0
     },
     {
       key: 8,
@@ -96,7 +104,8 @@ const data = [
       cost: '1899',
       image: 'https://media.sweetwater.com/api/i/f-webp__q-82__ha-de2d86a400fbea4d__hmac-cc5a7bbdbebb2b94b907dfc9676ed99310207ca8/images/items/750/RND5045-large.jpg.auto.webp',
       imageDetail: 'https://www.bhphotovideo.com/images/images2500x2500/rupert_neve_designs_5045_primary_source_enhancer_1597242.jpg',
-      productCategory: 3
+      productCategory: 3,
+      sales: 0
     }
   ]
 

@@ -9,8 +9,11 @@ import { Link } from 'react-router-dom';
 import './Item.css'
 
 const Item = (props) => {
+
+
+
   return (
-    <Grid  item xs={3}>
+    <Grid  item xs={3} >
     <Card sx={{ minWidth: 275 }}>
       <CardContent>
         <Typography variant="h6" color="text.secondary" gutterBottom>
@@ -28,9 +31,11 @@ const Item = (props) => {
       </CardContent>
       <CardActions>
         <Link to={'/item/'+props.id}>
-          <Button size="small" variant='outlined'>+ Informacion</Button>
+          <Button size="small" variant='outlined'
+            sx={{width:'100%'}}>
+            + Informacion
+          </Button>        
         </Link>
-          <Button size="small" variant='outlined'>Agregar al Carrito</Button>
       </CardActions>
     </Card>
     </Grid>

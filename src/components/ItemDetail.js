@@ -1,18 +1,26 @@
-import { Grid,Button,ButtonGroup } from "@mui/material"
-import { useState } from "react";
+import { Grid,Button } from "@mui/material"
+import { useState, useContext } from "react";
 import {Link} from 'react-router-dom'
+import { CartContext } from "./CartContext";
 import ItemCount from './ItemCount'
 import './ItemDetail.css'
 
 const ItemDetail = ({item}) => {
+    const ContextItems = useContext(CartContext);
 
     // contador de items a comprar
     const [itemCount, setItemCount] = useState(0);
 
     //funcion de carrito
     const onAdd = (cant) => {
-        alert(`Pusiste ${cant} ${item.name}s en el carrito`)
         setItemCount(cant);
+        if(ContextItems.isInCart(item.key)){
+            const pos = ContextItems.cartList.indexOf(item);
+            ContextItems.cartList[pos].sales += cant;
+        } else {
+            item.sales = cant;
+            ContextItems.addToCart(item);
+        }
     }
 
     return(

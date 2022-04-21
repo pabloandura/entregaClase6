@@ -1,0 +1,10 @@
+.contenedor {
+    background: rgb(240, 240, 240);
+    padding: 20px;
+}
+
+.botonesCartContainer {
+    display: block;
+    margin-left: auto;
+    margin-right: 0;  
+}
