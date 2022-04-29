@@ -1,7 +1,7 @@
 import { useEffect,useState } from "react";
 import ItemDetail from './ItemDetail'
 import { useParams } from 'react-router-dom';
-import { firestoreFetchOne } from '../usefuls/firestoreFetch';
+import { firestoreFetch } from '../usefuls/firestoreFetch';
 
 
 const ItemDetailContainer = () => {
@@ -9,7 +9,7 @@ const ItemDetailContainer = () => {
   const { idDetail } = useParams();
 
   useEffect(() => {
-      firestoreFetchOne(idDetail)
+      firestoreFetch(idDetail)
           .then(result => setDetail(result))
           .catch(err => console.log(err))
   }, []);

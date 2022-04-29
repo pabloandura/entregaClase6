@@ -11,8 +11,18 @@ import './CartContainer.css'
 const CartContainer = () => {
     const cartItems = useContext(CartContext);
     console.log(cartItems.cartList)
-    const pago = () => {
-        alert('En construccion');
+    
+    const checkout = () => {
+        let order = {
+            buyer: {
+                name: 'Leo Messi',
+                email: 'leo@messi.com',
+                phone: '123456789'
+            },
+            date: '04/29/22'
+
+        }
+        console.log(order);
     }
 
     return (
@@ -55,7 +65,7 @@ const CartContainer = () => {
                             }
                         </Grid>
                         <Grid item xs={3}>
-                            <Button variant="outlined" color='success' onClick={pago}>Terminar mi compra</Button>
+                            <Button variant="outlined" color='success' onClick={checkout}>Terminar mi compra</Button>
                         </Grid>
                     </Grid>
                     : <p style={{backgroundColor:'rgb(240, 240, 240)'}}>Gracias por visitarnos!</p>
