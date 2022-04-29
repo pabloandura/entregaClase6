@@ -13,16 +13,43 @@ const CartContainer = () => {
     console.log(cartItems.cartList)
     
     const checkout = () => {
+        // reducimos el stock de los items seleccionados
+        cartItems.cartList.forEach(async (item) => {
+            const itemRef = doc(db,'products',item.id);
+            await updateDoc(itemRef, {
+                stock: increment(-item.sales)
+            });
+        });
+
         let order = {
             buyer: {
                 name: 'Leo Messi',
                 email: 'leo@messi.com',
                 phone: '123456789'
             },
-            date: '04/29/22'
+            item: cartItems.cartList.map( item => ({
+                id: item.id,
+                title: item.name,
+                price: item.cost,
+                qty: item.sales
+            })),
+            date: serverTimestamp(),
+            total: cartItems.calcSubTotal().reduce((previous,current) => previous + current),
+
 
         }
-        console.log(order);
+        const createOrderInFirestore = async () => {
+            // add a new document with a generated ID
+            const newOrderRef = doc(collection(db,"orders"));
+            await setDoc(newOrderRef, order);
+            return newOrderRef;
+        }
+        createOrderInFirestore()
+            .then( result => alert(" Your order has been created. Please take note of your order's id. \n\n\n " + result.id + "\n\n"))
+            .catch( err => console.log(err) )
+
+        // limpiamos el carrito porque ya se compraran estos items
+        cartItems.clear();
     }
 
     return (
@@ -74,6 +101,5 @@ const CartContainer = () => {
 
     )
 }
-
 
 export default CartContainer;
