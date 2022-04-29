@@ -6,21 +6,15 @@ import ItemCount from './ItemCount'
 import './ItemDetail.css'
 
 const ItemDetail = ({item}) => {
-    const ContextItems = useContext(CartContext);
-
     // contador de items a comprar
     const [itemCount, setItemCount] = useState(0);
+    const ContextItems = useContext(CartContext);
 
     //funcion de carrito
-    const onAdd = (cant) => {
-        setItemCount(cant);
-        if(ContextItems.isInCart(item.key)){
-            const pos = ContextItems.cartList.indexOf(item);
-            ContextItems.cartList[pos].sales += cant;
-        } else {
-            item.sales = cant;
-            ContextItems.addToCart(item);
-        }
+    const onAdd = (qty) => {
+        alert("You have selected " + qty + " items.");
+        setItemCount(qty);
+        ContextItems.addToCart(item, qty);
     }
 
     return(
