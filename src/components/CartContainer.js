@@ -2,6 +2,8 @@ import { useContext } from "react";
 import { CartContext } from "./CartContext";
 import { Link } from "react-router-dom";
 import {Button, Grid} from '@mui/material'
+import { collection, doc, setDoc, serverTimestamp, updateDoc, increment } from "firebase/firestore";
+import db from '../usefuls/firebaseConfig';
 import CartItem from './CartItem'
 import './CartContainer.css'
 

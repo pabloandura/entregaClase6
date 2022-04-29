@@ -21,12 +21,12 @@ const CartContextProvider = ({ children }) => {
     }
 
     const addToCart = (item, qty) => {
-        let found = cartList.find(product => product.idItem === item.id);
+        let found = cartList.find(product => product.id === item.id);
         if (found === undefined) {
             setCartList([
                 ...cartList,
                 {
-                    idItem: item.id,
+                    id: item.id,
                     imgItem: item.image[0],
                     nameItem: item.name,
                     costItem: item.cost,
