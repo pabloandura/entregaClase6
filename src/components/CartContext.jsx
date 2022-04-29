@@ -8,12 +8,12 @@ const CartContextProvider = ({ children }) => {
     
 
     const removeItem = (id) => {
-        const result = cartList.filter(producto => producto.key !== id); // filtramos a lo que de falso con la condicion
+        const result = cartList.filter(producto => <producto className="id"></producto> !== id); // filtramos a lo que de falso con la condicion
         setCartList(result);
     }
     
     const isInCart = (id) => {
-        return cartList.some(item => id === item.key);
+        return cartList.some(item => id === item.id);
     }
 
     const clear = () => {
@@ -27,10 +27,11 @@ const CartContextProvider = ({ children }) => {
                 ...cartList,
                 {
                     id: item.id,
-                    imgItem: item.image[0],
-                    nameItem: item.name,
-                    costItem: item.cost,
-                    qtyItem: qty
+                    image: item.image,
+                    name: item.name,
+                    cost: item.cost,
+                    sales: qty,
+                    key: item.key
                 }
             ]);
         } else {
