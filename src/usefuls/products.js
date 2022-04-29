@@ -19,7 +19,7 @@ const data = [
       stock: 5,
       cost: 4699,
       image: 'https://media.sweetwater.com/api/i/f-webp__q-82__ha-e26362720567cf60__hmac-3c563f218bad61fd7220eeb6dc3d6ad92afaae78/images/items/750/LA2A-large.jpg.auto.webp',
-      imageDetail: 'https://analogvibes.com/wp-content/uploads/tube-amplifier-teletronix-la2a-preamp-opto-compressor-specs-frontside-1.jpg',
+      imageDetail: 'https://analogvibes.com/wp-content/uploads/tube-amplifier-teletronix-la2a-preamp-opto-compressor-specs-frontside-1.jphttps://analogvibes.com/wp-content/uploads/tube-amplifier-teletronix-la2a-preamp-opto-compressor-specs-frontside-1.jpg',
       productCategory: 1,
       sales: 0
     },

@@ -1,26 +1,33 @@
-import getData from '../usefuls/getData';
-import { useEffect, useState} from 'react';
-import products from '../usefuls/products';
+import { useEffect, useState } from 'react';
+import { collection, getDocs } from "firebase/firestore";
 import ItemList from './ItemList';
 import {useParams} from 'react-router-dom';
+import db from '../usefuls/firebaseConfig'
 import './ItemListContainer.css';
+
 
 const ItemListContainer = () => {
   const [datos, setDatos] = useState({}); // HOOK estado para los productos
   const {idCategory} = useParams(); // HOOK parametros de navegacion
 
   useEffect(() => {
-    if(idCategory === undefined){
-      getData(2000, products)
-        .then(result => setDatos(result))
-        .catch(err => console.log(err))
-      console.log(idCategory) // 1:25
-    } else { // condicion para la categoria de items a mostrar
-      getData(2000, products.filter(item => item.productCategory === parseInt(idCategory)))
-      .then(result => setDatos(result))
-      .catch(err => console.log(err))
+    const fetchFromFirestore = async () => {
+      const querySnapshot = await getDocs(collection(db, 'products'));
+      const dataFromFirestore = querySnapshot.docs.map( (doc) => ({
+        id: doc.id,
+        ...doc.data()
+      })); // por cada documento en el storage se pondra en el estado
+      return dataFromFirestore;
     }
-  }, [idCategory]);
+    fetchFromFirestore()
+      .fetch( result => setDatos(result) )
+      .catch(err => console.log(err))
+  }, [datos]);
+  useEffect(()=>{
+    return ( () => {
+      setDatos( [] );
+    })
+  })
 
   
   return(
