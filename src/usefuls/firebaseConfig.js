@@ -3,7 +3,7 @@ import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 
 // Your web app's Firebase configuration
-const firebaseConfig = {
+ const firebaseConfig = {
   apiKey: "AIzaSyB2emYJbDPMBD7LZIlK3xrtW-FdqQSeErQ",
   authDomain: "sonidoacutec.firebaseapp.com",
   projectId: "sonidoacutec",
@@ -13,9 +13,10 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
+export const firebaseApp = initializeApp(firebaseConfig);
 
 // Initialize Cloud Firestore and get a reference to the service
-const db = getFirestore(app);
+const db = getFirestore(firebaseApp);
+
 
 export default db;

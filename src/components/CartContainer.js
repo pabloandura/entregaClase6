@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { CartContext } from "./CartContext";
 import { Link } from "react-router-dom";
 import {Button, Grid} from '@mui/material'
+import { ToastContainer, toast } from 'react-toastify';
 import { collection, doc, setDoc, serverTimestamp, updateDoc, increment } from "firebase/firestore";
 import db from '../usefuls/firebaseConfig';
 import CartItem from './CartItem'
@@ -10,7 +11,6 @@ import './CartContainer.css'
 
 const CartContainer = () => {
     const cartItems = useContext(CartContext);
-    console.log(cartItems.cartList)
     
     const checkout = () => {
         // reducimos el stock de los items seleccionados
@@ -38,6 +38,7 @@ const CartContainer = () => {
 
 
         }
+        const orderCreation = (string) => toast.success(string);
         const createOrderInFirestore = async () => {
             // add a new document with a generated ID
             const newOrderRef = doc(collection(db,"orders"));
@@ -45,7 +46,7 @@ const CartContainer = () => {
             return newOrderRef;
         }
         createOrderInFirestore()
-            .then( result => alert(" Your order has been created. Please take note of your order's id. \n\n\n " + result.id + "\n\n"))
+            .then( result => orderCreation(" Your order has been created. Please take note of your order's id. \n\n\n " + result.id + "\n\n"))
             .catch( err => console.log(err) )
 
         // limpiamos el carrito porque ya se compraran estos items
@@ -73,6 +74,7 @@ const CartContainer = () => {
                             idRem={item.key}
                             cost={item.cost}
                             id={item.id}
+                            cartDeletion={item}
                         />
                         )
                         : <p className={'mensajes'}>No tienes nada en el carrito, asesorate con <Link to='/contacto'>nosotros</Link> o busca algo que comprar
@@ -95,8 +97,10 @@ const CartContainer = () => {
                             <Button variant="outlined" color='success' onClick={checkout}>Terminar mi compra</Button>
                         </Grid>
                     </Grid>
-                    : <p style={{backgroundColor:'rgb(240, 240, 240)'}}>Gracias por visitarnos!</p>
+                    : <p style={{fontSize:'35px', backgroundColor:'rgb(240, 240, 240)'}}>Gracias por visitarnos!</p>
             }
+            <ToastContainer autoClose={false} />
+
         </>
 
     )

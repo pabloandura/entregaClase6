@@ -13,30 +13,37 @@ const Item = (props) => {
 
 
   return (
-    <Grid  item xs={3} >
-    <Card sx={{ minWidth: 275 }}>
-      <CardContent>
-        <Typography variant="h6" color="text.secondary" gutterBottom>
+    <Grid  item xs={6} md={4} lg={3} >
+    <Card sx={{ minWidth: 275 , minHeight: 400, display:'cover', backgroundImage:`url(${props.image})`, backgroundRepeat:'no-repeat' }}>
+      <CardContent sx={{
+        background: 'linear-gradient(173deg, lightblue 0%, rgba(255,255,255,1) 100%)', 
+        opacity:'80%',
+        textAlign:'start',
+        display: 'flex',
+        alignItems: 'flex-end',
+        flexWrap: 'wrap'
+        }}>
+        <Typography variant="h6" sx={{ margin:'5px', width:'100%'}} gutterBottom>
           {props.name}
         </Typography>
-        <Typography sx={{ fontSize: 14 }} component="div">
-          Stock: {props.stock}
-        </Typography>
-        <Typography sx={{ mb: 1.5 }} color="text.secondary">
-          Price: {props.cost}
-        </Typography>
-        <Typography variant="body2">
-          <img src={props.image} alt={props.name}/>
-        </Typography>
+        <div>
+          <Typography sx={{ margin:'5px', fontSize: 14 , width:'100%'}}>
+            Stock: {props.stock}
+          </Typography>
+          <Typography sx={{ margin:'5px' , width:'100%' }}>
+            Price: {props.cost}
+          </Typography>
+        </div>
+          <CardActions sx={{
+            width:'100%'
+          }}>
+            <Link to={'/item/'+props.id}>
+              <Button size="small" variant='outlined'>
+                Detalles
+              </Button>        
+            </Link>
+          </CardActions>
       </CardContent>
-      <CardActions>
-        <Link to={'/item/'+props.id}>
-          <Button size="small" variant='outlined'
-            sx={{width:'100%'}}>
-            + Informacion
-          </Button>        
-        </Link>
-      </CardActions>
     </Card>
     </Grid>
   );

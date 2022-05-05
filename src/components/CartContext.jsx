@@ -7,8 +7,8 @@ const CartContextProvider = ({ children }) => {
     const [cartList, setCartList] = useState([]);
     
 
-    const removeItem = (id) => {
-        const result = cartList.filter(producto => <producto className="id"></producto> !== id); // filtramos a lo que de falso con la condicion
+    const removeItem = (cartDeletion) => {
+        const result = cartList.filter(producto =>  producto !== cartDeletion); // filtramos a lo que de falso con la condicion
         setCartList(result);
     }
     

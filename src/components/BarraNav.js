@@ -7,6 +7,7 @@ import './BarraNav.css'
 import CartWidget from './CartWidget';
 
 const BarraNav = () => {
+
   return (
     <AppBar position="static">
       <Toolbar variant="dense" className='toolbar'>

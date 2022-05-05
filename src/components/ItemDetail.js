@@ -2,17 +2,21 @@ import { Grid,Button } from "@mui/material"
 import { useState, useContext } from "react";
 import {Link} from 'react-router-dom'
 import { CartContext } from "./CartContext";
+import { ToastContainer, toast } from 'react-toastify';
 import ItemCount from './ItemCount'
+import 'react-toastify/dist/ReactToastify.css';
 import './ItemDetail.css'
+
 
 const ItemDetail = ({item}) => {
     // contador de items a comprar
     const [itemCount, setItemCount] = useState(0);
     const ContextItems = useContext(CartContext);
-
+    //toastify
     //funcion de carrito
     const onAdd = (qty) => {
-        alert("You have selected " + qty + " items.");
+        const notify = () => toast(`Has introducido ${qty} "${item.name}" en el carrito.`);
+        notify();
         setItemCount(qty);
         ContextItems.addToCart(item, qty);
     }
@@ -39,6 +43,7 @@ const ItemDetail = ({item}) => {
                     <h4>{item.description}</h4>
                 </Grid>
             </Grid>
+            <ToastContainer />
         </div>
         : <p>Cargando...</p>
         }
