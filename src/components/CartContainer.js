@@ -1,7 +1,9 @@
+import React from 'react';
+import FormDialog from './FormDialog';
 import { useContext } from "react";
 import { CartContext } from "./CartContext";
 import { Link } from "react-router-dom";
-import {Button, Grid} from '@mui/material'
+import { Button, Grid } from '@mui/material'
 import { ToastContainer, toast } from 'react-toastify';
 import { collection, doc, setDoc, serverTimestamp, updateDoc, increment } from "firebase/firestore";
 import db from '../usefuls/firebaseConfig';
@@ -12,7 +14,7 @@ import './CartContainer.css'
 const CartContainer = () => {
     const cartItems = useContext(CartContext);
     
-    const checkout = () => {
+    const checkout = (name,email,phone) => {
         // reducimos el stock de los items seleccionados
         cartItems.cartList.forEach(async (item) => {
             const itemRef = doc(db,'products',item.id);
@@ -23,9 +25,9 @@ const CartContainer = () => {
 
         let order = {
             buyer: {
-                name: 'Leo Messi',
-                email: 'leo@messi.com',
-                phone: '123456789'
+                name: {name},
+                email: {email},
+                phone: {phone}
             },
             item: cartItems.cartList.map( item => ({
                 id: item.id,
@@ -53,6 +55,16 @@ const CartContainer = () => {
         cartItems.clear();
     }
 
+    const [open, setOpen] = React.useState(false);
+
+    const handleClickOpen = () => {
+      setOpen(true);
+    };
+  
+    const handleClose = () => {
+      setOpen(false);
+    };
+    
     return (
         <>
             <Grid container spacing={2}>
@@ -84,7 +96,9 @@ const CartContainer = () => {
             {
                 cartItems.cartList.length > 0
                     ? 
-                    <Grid container spacing={10}>
+                    <Grid container spacing={10} sx={{
+                        marginTop:'15px'
+                        }}>
                         <Grid item  display='flex' justifyContent="flex-end" xs={6}>
                             <Button variant="outlined" onClick={cartItems.clear}>Limpiar Carrito</Button>
                         </Grid>
@@ -94,13 +108,13 @@ const CartContainer = () => {
                             }
                         </Grid>
                         <Grid item xs={3}>
-                            <Button variant="outlined" color='success' onClick={checkout}>Terminar mi compra</Button>
+                            <Button variant="outlined" color='success' onClick={handleClickOpen}>Terminar mi compra</Button>
                         </Grid>
                     </Grid>
                     : <p style={{fontSize:'35px', backgroundColor:'rgb(240, 240, 240)'}}>Gracias por visitarnos!</p>
             }
             <ToastContainer autoClose={false} />
-
+            <FormDialog checkout={checkout} handleClose={handleClose} open={open}/>
         </>
 
     )

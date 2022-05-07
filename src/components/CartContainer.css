@@ -10,3 +10,18 @@
     font-size: 35px;
 
 }
+
+.cajaForm {
+    min-height: 400px;
+    min-width: 250px;
+    background-color: lightcyan;
+    display: grid;
+    padding: 10px;
+}
+
+.textoForm {
+    background-color: lightcyan;
+    display: grid;
+    padding: 10px;
+    font-weight: 800;
+}

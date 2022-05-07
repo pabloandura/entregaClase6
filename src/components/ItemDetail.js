@@ -1,6 +1,6 @@
 import { Grid,Button } from "@mui/material"
 import { useState, useContext } from "react";
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { CartContext } from "./CartContext";
 import { ToastContainer, toast } from 'react-toastify';
 import ItemCount from './ItemCount'
@@ -30,7 +30,7 @@ const ItemDetail = ({item}) => {
             <h2>{item.name}</h2>
             <Grid container className='detailPage'>
                 <Grid item xs={4}>
-                    <img src={item.imageDetail} alt='detalleProducto'/>
+                    <img className="imagenDetail" src={item.imageDetail} alt='detalleProducto'/>
                     <h3>Stock Actual: {item.stock}</h3>
                     <h4>Precio unitario: U$S {item.cost}</h4>
                     {
