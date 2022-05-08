@@ -15,3 +15,6 @@ Simplificó mucho el proceso de maqueteo, un estilo propio de Material UI que ma
 La libreria de Firebase es necesaria a la hora de hacer peticiones al servicio cloud.
 #### Toastify
 Queria remplazar los alert por algo mas elegante.
+
+
+Gracias profes!
