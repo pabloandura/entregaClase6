@@ -25,9 +25,9 @@ const CartContainer = () => {
 
         let order = {
             buyer: {
-                name: {name},
-                email: {email},
-                phone: {phone}
+                nameFull: {name},
+                emailAddress: {email},
+                phoneNumber: {phone}
             },
             item: cartItems.cartList.map( item => ({
                 id: item.id,
